@@ -1,8 +1,6 @@
-Triggered by ./ddddd POC
+Triggered by ./xml2isi POC
 
-copac2xml, bibutils suite version 6.8
+xml2isi, xml2ris, xml2wordbib, xml2end bibutils suite version 6.8
 
-$ ./dddd POC
-Segmentation fault (core dumped)
-
-
+$ ./xml2isi POC
+xml2isi: str.c:533: str_segcpy: Assertion `((size_t) startat) <= ((size_t) endat)' failed.

@@ -1,0 +1,45 @@
+Triggered by ./xml2isi POC
+
+xml2isi, xml2ris, xml2wordbib, xml2end bibutils suite version 6.8
+
+The output information is as follows : 
+
+$ ./xml2isi POC
+segmentation fault(core dump)
+
+NULL pointer reference at url.c: find_prefix
+
+GDB debugging information is as follows :
+
+
+(gdb)set args POC
+(gdb)r
+(gdb)bt
+
+
+#0  __strncmp_sse42 () at ../sysdeps/x86_64/multiarch/strcmp-sse42.S:199
+#1  0x00005555555e43bc in find_prefix (s=0x0, p=0x5555558e1800 <prefixes>, np=0x7) at url.c:210
+#2  0x00005555555e441d in urls_split_and_add (value_in=0x0, out=0x5555558ee5c0, lvl_out=0x0) at url.c:222
+#3  0x00005555555d2e3d in modsin_locationr (node=0x5555558ec910, info=0x5555558ee5c0, level=0x0) at modsin.c:819
+#4  0x00005555555d2f37 in modsin_location (node=0x5555558e9050, info=0x5555558ee5c0, level=0x0) at modsin.c:839
+#5  0x00005555555d3b1b in modsin_mods (node=0x5555558e9050, info=0x5555558ee5c0, level=0x0) at modsin.c:1032
+#6  0x00005555555d3ca0 in modsin_mods (node=0x5555558ea6e0, info=0x5555558ee5c0, level=0x0) at modsin.c:1046
+#7  0x00005555555d3ca0 in modsin_mods (node=0x5555558ea410, info=0x5555558ee5c0, level=0x0) at modsin.c:1046
+#8  0x00005555555d3ca0 in modsin_mods (node=0x5555558ee5f0, info=0x5555558ee5c0, level=0x0) at modsin.c:1046
+#9  0x00005555555d3d42 in modsin_assembleref (node=0x5555558e8e40, info=0x5555558ee5c0) at modsin.c:1059
+#10 0x00005555555d3d74 in modsin_assembleref (node=0x7fffffffd6e0, info=0x5555558ee5c0) at modsin.c:1063
+#11 0x00005555555d3e2c in modsin_processf (modsin=0x5555558ee5c0, 
+    data=0x5555558e9650 "<mods ID=\"biblatex-chicago\">    <titleInfo>        <title>Th\377\177biblatex-chicago package</title>    </titleInfo>    <name type=\"personal\">        <namePart type=\"given\">David</natype=\"family\">Fussner</n"..., filename=0x7fffffffdfe3 "output_2019_8_29_normal_clang/crashes//id:000032,sig:11,src:000004,op:havoc,rep:128", 
+    nref=0x1, p=0x7fffffffd970) at modsin.c:1078
+#12 0x00005555555e5c9d in read_ref (fp=0x5555558e7280, bin=0x7fffffffd950, 
+    filename=0x7fffffffdfe3 "output_2019_8_29_normal_clang/crashes//id:000032,sig:11,src:000004,op:havoc,rep:128", 
+    p=0x7fffffffd970) at bibcore.c:472
+#13 0x00005555555e716f in bibl_read (b=0x7fffffffda80, fp=0x5555558e7280, 
+    filename=0x7fffffffdfe3 "output_2019_8_29_normal_clang/crashes//id:000032,sig:11,src:000004,op:havoc,rep:128", 
+    p=0x7fffffffdac0) at bibcore.c:859
+#14 0x00005555555cfeb0 in bibprog (argc=0x2, argv=0x7fffffffdc78, p=0x7fffffffdac0) at bibprog.c:28
+#15 0x00005555555d4582 in main (argc=0x2, argv=0x7fffffffdc78) at xml2end.c:85
+#16 0x00007ffff7a05b97 in __libc_start_main (main=0x5555555d44d1 <main>, argc=0x2, argv=0x7fffffffdc78, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffdc68)
+    at ../csu/libc-start.c:310
+#17 0x00005555555cfcfa in _start ()
