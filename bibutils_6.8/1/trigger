@@ -1,0 +1,8 @@
+Triggered by ./ddddd POC
+
+copac2xml, bibutils suite version 6.8
+
+$ ./dddd POC
+Segmentation fault (core dumped)
+
+
