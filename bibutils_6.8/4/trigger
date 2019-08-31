@@ -1,0 +1,38 @@
+Triggered by ./biblatex2xml ./POC ./POC
+
+./biblatex2xml bibutils suite version 6.8
+
+
+this testcase will trigger infinite loop 
+
+function : slist_remove
+
+GDB debugging information is as follows :
+
+(gdb)set args POC 
+(gdb)b slist_remove
+(gdb)r
+
+[-------------------------------------code-------------------------------------]
+   0x5555555872c5 <slist_remove+4>:	sub    rsp,0x20
+   0x5555555872c9 <slist_remove+8>:	mov    QWORD PTR [rbp-0x18],rdi
+   0x5555555872cd <slist_remove+12>:	mov    DWORD PTR [rbp-0x1c],esi
+=> 0x5555555872d0 <slist_remove+15>:	cmp    QWORD PTR [rbp-0x18],0x0
+   0x5555555872d5 <slist_remove+20>:	jne    0x5555555872f6 <slist_remove+53>
+   0x5555555872d7 <slist_remove+22>:	
+    lea    rcx,[rip+0xdb6a]        # 0x555555594e48 <__PRETTY_FUNCTION__.3613>
+   0x5555555872de <slist_remove+29>:	mov    edx,0x24b
+   0x5555555872e3 <slist_remove+34>:	lea    rsi,[rip+0xda66]        # 0x555555594d50
+[------------------------------------stack-------------------------------------]
+0000| 0x7fffffffd590 --> 0x1ffffd5b0 
+0008| 0x7fffffffd598 --> 0x7fffffffd650 --> 0xa0000000727d 
+0016| 0x7fffffffd5a0 --> 0x7ffff78a3050 --> 0x555555872100 --> 0x23 ('#')
+0024| 0x7fffffffd5a8 --> 0x7ffff78a3010 --> 0x555555872060 --> 0x237f 
+0032| 0x7fffffffd5b0 --> 0x7fffffffd600 --> 0x7fffffffd670 --> 0x7fffffffd760 --> 0x7fffffffd7a0 --> 0x7fffffffd940 (--> ...)
+0040| 0x7fffffffd5b8 --> 0x55555557d1a9 (<string_concatenate+580>:	mov    DWORD PTR [rbp-0x14],eax)
+0048| 0x7fffffffd5c0 --> 0x7fffffffd9a0 --> 0xd00000006c 
+0056| 0x7fffffffd5c8 --> 0x1 
+[------------------------------------------------------------------------------]
+Legend: code, data, rodata, value
+
+Breakpoint 1, slist_remove (a=0x7fffffffd650, n=0x1) at slist.c:587

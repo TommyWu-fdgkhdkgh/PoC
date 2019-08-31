@@ -1,0 +1,97 @@
+Triggered by ./med2xml POC
+
+med2xml bibutils suite version 6.8
+
+The output information is as follows : 
+
+$ ./med2xml POC
+segmentation fault(core dump)
+Null pointer reference
+
+GDB debugging information is as follows :
+
+the pointer is point to rdi, but the value of rdi is zero (null pointer reference)
+
+(gdb)set args POC
+(gdb)r
+(gdb)bt
+
+[----------------------------------registers-----------------------------------]
+RAX: 0x0 
+RBX: 0x0 
+RCX: 0x0 
+RDX: 0x7ffff7b81dc0 --> 0x100000000 
+RSI: 0x7c ('|')
+RDI: 0x0 
+RBP: 0x7fffffffcf70 --> 0x7fffffffcfa0 --> 0x7fffffffd000 --> 0x7fffffffd030 --> 0x7fffffffd060 --> 0x7fffffffd090 (--> ...)
+RSP: 0x7fffffffcf48 --> 0x555555571f51 (<medin_author+397>:	test   rax,rax)
+RIP: 0x7ffff7b71fb8 (<__strchr_avx2+24>:	vmovdqu ymm8,YMMWORD PTR [rdi])
+R8 : 0x0 
+R9 : 0x0 
+R10: 0x7ffff7b6f580 (<__strcasecmp_l_avx+1520>:	vpslldq xmm2,xmm2,0xc)
+R11: 0x7ffff7b934c0 --> 0xfff080b0fff080a0 
+R12: 0x55555556b490 (<_start>:	xor    ebp,ebp)
+R13: 0x7fffffffd850 --> 0x2 
+R14: 0x0 
+R15: 0x0
+EFLAGS: 0x10283 (CARRY parity adjust zero SIGN trap INTERRUPT direction overflow)
+[-------------------------------------code-------------------------------------]
+   0x7ffff7b71fb0 <__strchr_avx2+16>:	and    ecx,0x3f
+   0x7ffff7b71fb3 <__strchr_avx2+19>:	cmp    ecx,0x20
+   0x7ffff7b71fb6 <__strchr_avx2+22>:	ja     0x7ffff7b71ff0 <__strchr_avx2+80>
+=> 0x7ffff7b71fb8 <__strchr_avx2+24>:	vmovdqu ymm8,YMMWORD PTR [rdi]
+   0x7ffff7b71fbc <__strchr_avx2+28>:	vpcmpeqb ymm1,ymm0,ymm8
+   0x7ffff7b71fc1 <__strchr_avx2+33>:	vpcmpeqb ymm2,ymm9,ymm8
+   0x7ffff7b71fc6 <__strchr_avx2+38>:	vpor   ymm1,ymm2,ymm1
+   0x7ffff7b71fca <__strchr_avx2+42>:	vpmovmskb eax,ymm1
+[------------------------------------stack-------------------------------------]
+0000| 0x7fffffffcf48 --> 0x555555571f51 (<medin_author+397>:	test   rax,rax)
+0008| 0x7fffffffcf50 --> 0x7fffffffcfd0 --> 0x0 
+0016| 0x7fffffffcf58 --> 0x555555845be0 --> 0x555555845c70 ("Initials")
+0024| 0x7fffffffcf60 --> 0x5555555830c3 ("Initials")
+0032| 0x7fffffffcf68 --> 0x5555558455e0 --> 0x0 
+0040| 0x7fffffffcf70 --> 0x7fffffffcfa0 --> 0x7fffffffd000 --> 0x7fffffffd030 --> 0x7fffffffd060 --> 0x7fffffffd090 (--> ...)
+0048| 0x7fffffffcf78 --> 0x555555571ff7 (<medin_author+563>:	mov    eax,0x0)
+0056| 0x7fffffffcf80 --> 0x7fffffffcfd0 --> 0x0 
+[------------------------------------------------------------------------------]
+Legend: code, data, rodata, value
+Stopped reason: SIGSEGV
+__strchr_avx2 () at ../sysdeps/x86_64/multiarch/strchr-avx2.S:57
+57	../sysdeps/x86_64/multiarch/strchr-avx2.S: 沒有此一檔案或目錄.
+gdb-peda$ bt
+#0  __strchr_avx2 () at ../sysdeps/x86_64/multiarch/strchr-avx2.S:57
+#1  0x0000555555571f51 in medin_author (node=0x555555845be0, name=0x7fffffffcfd0) at medin.c:389
+#2  0x0000555555571ff7 in medin_author (node=0x5555558455e0, name=0x7fffffffcfd0) at medin.c:396
+#3  0x00005555555720ef in medin_authorlist (node=0x555555844f40, info=0x5555558420d0) at medin.c:419
+#4  0x0000555555572745 in medin_article (node=0x555555853650, info=0x5555558420d0) at medin.c:549
+#5  0x0000555555572804 in medin_article (node=0x555555853490, info=0x5555558420d0) at medin.c:557
+#6  0x0000555555572804 in medin_article (node=0x555555853280, info=0x5555558420d0) at medin.c:557
+#7  0x0000555555572804 in medin_article (node=0x5555558530c0, info=0x5555558420d0) at medin.c:557
+#8  0x0000555555572804 in medin_article (node=0x555555852f00, info=0x5555558420d0) at medin.c:557
+#9  0x0000555555572804 in medin_article (node=0x555555841cb0, info=0x5555558420d0) at medin.c:557
+#10 0x00005555555728b9 in medin_medlinecitation (node=0x5555558413e0, info=0x5555558420d0) at medin.c:571
+#11 0x0000555555572951 in medin_medlinecitation (node=0x5555558406c0, info=0x5555558420d0) at medin.c:578
+#12 0x0000555555572951 in medin_medlinecitation (node=0x5555558410a0, info=0x5555558420d0) at medin.c:578
+#13 0x0000555555572951 in medin_medlinecitation (node=0x555555841720, info=0x5555558420d0) at medin.c:578
+#14 0x00005555555729ab in medin_pubmedarticle (node=0x5555558415f0, info=0x5555558420d0) at medin.c:588
+#15 0x0000555555572a6e in medin_assembleref (node=0x555555841510, info=0x5555558420d0) at medin.c:603
+#16 0x0000555555572abd in medin_assembleref (node=0x7fffffffd2c0, info=0x5555558420d0) at medin.c:607
+#17 0x0000555555572c78 in medin_processf (medin=0x5555558420d0, 
+    data=0x5555558426a0 "<PubmedArticle>    <MedlineCitation Owner=\"NLM\" Status=\"PubMed-not-MEDLINE\">        <PMID>16351846</PMID>        <DateCreated>", ' ' <repeats 12 times>, "<Year>2005</Year>", ' ' <repeats 12 times>, "<Month>12</Month>", ' ' <repeats 12 times>, "<Day"..., filename=0x7fffffffdcdf "id:000002,sig:11,src:000352,op:int8,pos:7285,val:+0", 
+    nref=0x1, p=0x7fffffffd550) at medin.c:640
+#18 0x000055555557e3dd in read_ref (fp=0x55555583f280, bin=0x7fffffffd530, 
+    filename=0x7fffffffdcdf "id:000002,sig:11,src:000352,op:int8,pos:7285,val:+0", p=0x7fffffffd550) at bibcore.c:472
+#19 0x000055555557f8af in bibl_read (b=0x7fffffffd660, fp=0x55555583f280, 
+    filename=0x7fffffffdcdf "id:000002,sig:11,src:000352,op:int8,pos:7285,val:+0", p=0x7fffffffd6a0) at bibcore.c:859
+#20 0x000055555556bcac in bibprog (argc=0x2, argv=0x7fffffffd858, p=0x7fffffffd6a0) at bibprog.c:28
+#21 0x0000555555570f20 in main (argc=0x2, argv=0x7fffffffd858) at med2xml.c:28
+#22 0x00007ffff7a05b97 in __libc_start_main (main=0x555555570e84 <main>, argc=0x2, argv=0x7fffffffd858, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffd848)
+    at ../csu/libc-start.c:310
+#23 0x000055555556b4ba in _start ()
+
+
+
+
+
+

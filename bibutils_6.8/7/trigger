@@ -1,0 +1,49 @@
+Triggered by ./med2xml POC
+
+med2xml bibutils suite version 6.8
+
+The output information is as follows :
+
+$ ./med2xml POC
+(trigger infinite loop)
+
+
+GDB debugging information is as follows :
+
+(gdb)set args POC
+
+#0  str_has_value (s=0x7fffffffcfb0) at str.c:1109
+#1  0x000055555557b861 in xml_processattrib (
+    p=0x55555584325f ">physiology</QualifierName>\273", ' ' <repeats 11 times>, "</MeshHeading>", ' ' <repeats 12 times>, "<MeshHeading>", ' ' <repeats 16 times>, "<DescriptorName MajorTopicYN=\"N\">Biodiversity</DescriptorName>", ' ' <repeats 12 times>, "</MeshHeading>", ' ' <repeats 12 times>, "<MeshH"..., node=0x555555849350, 
+    type=0x7fffffffd098) at xml.c:139
+#2  0x000055555557bb7f in xml_processtag (
+    p=0x55555584324e " MajorTopicYN=\"N\">physiology</QualifierName>\273", ' ' <repeats 11 times>, "</MeshHeading>", ' ' <repeats 12 times>, "<MeshHeading>", ' ' <repeats 16 times>, "<DescriptorName MajorTopicYN=\"N\">Biodiversity</DescriptorName>", ' ' <repeats 12 times>, "</MeshHeading> "..., node=0x555555849350, 
+    type=0x7fffffffd098) at xml.c:195
+#3  0x000055555557bd3c in xml_parse (
+    p=0x555555843240 "<QualifierName MajorTopicYN=\"N\">physiology</QualifierName>\273", ' ' <repeats 11 times>, "</MeshHeading>", ' ' <repeats 12 times>, "<MeshHeading>", ' ' <repeats 16 times>, "<DescriptorName MajorTopicYN=\"N\">Biodiversity</DescriptorName>", ' ' <repeats 12 times>, "<"..., onode=0x555555849270) at xml.c:238
+#4  0x000055555557bd85 in xml_parse (
+    p=0x555555843230 ' ' <repeats 16 times>, "<QualifierName MajorTopicYN=\"N\">physiology</QualifierName>\273", ' ' <repeats 11 times>, "</MeshHeading>", ' ' <repeats 12 times>, "<MeshHeading>", ' ' <repeats 16 times>, "<DescriptorName MajorTopicYN=\"N\">Biodiversity</DescriptorNa"..., onode=0x555555849190) at xml.c:242
+#5  0x000055555557bd85 in xml_parse (
+    p=0x5555558431fd ' ' <repeats 16 times>, "<DescriptorNamimal</DescriptorName>", ' ' <repeats 16 times>, "<QualifierName MajorTopicYN=\"N\">physiology</QualifierName>\273", ' ' <repeats 11 times>, "</MeshHeading>", ' ' <repeats 12 times>, "<MeshHeading>", ' ' <repeats 16 times>, "<Descrip"..., onode=0x555555847f00) at xml.c:242
+#6  0x000055555557bd85 in xml_parse (
+    p=0x555555843058 ' ' <repeats 12 times>, "<MeshHeading>", ' ' <repeats 16 times>, "<>      DescriptorName MajorTopicYN=\"N\">Animals</DescriptorName>", ' ' <repeats 12 times>, "</MeshHeading>", ' ' <repeats 12 times>, "<MeshHeading>", ' ' <repeats 16 times>, "<DescriptorName MajorTopicYN"..., onode=0x555555841be0) at xml.c:242
+#7  0x000055555557bd85 in xml_parse (
+    p=0x55555584289e ' ' <repeats 12 times>, "<Journal>", ' ' <repeats 16 times>, "<ISSN IssnTypJ=\"Print\">0065-2881</ISSN>", ' ' <repeats 16 times>, "<JournalIssue CitedMedium=\"Print\">", ' ' <repeats 20 times>, "<Volume>51</Volume>", ' ' <repeats 20 times>, "<PubDate>      "..., onode=0x555555840750) at xml.c:242
+#8  0x000055555557bd85 in xml_parse (
+    p=0x5555558426e1 "        <PMID>16905428</PMID>        <DateCreated>", ' ' <repeats 12 times>, "<Year>2006</Year>", ' ' <repeats 12 times>, "<Month>08</Month>", ' ' <repeats 20 times>, "/Day>        </DateCreated>        <DateCompleted>", ' ' <repeats 12 times>, "<Year>2006"..., onode=0x5555558406c0) at xml.c:242
+#9  0x000055555557bd85 in xml_parse (
+    p=0x5555558426af "    <MedlineCitation Owner=\"NLM\" Status=\"MEDLINE\">        <PMID>16905428</PMID>        <DateCreated>", ' ' <repeats 12 times>, "<Year>2006</Year>", ' ' <repeats 12 times>, "<Month>08</Month>", ' ' <repeats 20 times>, "/Day>        </DateCre"..., onode=0x7fffffffd280) at xml.c:242
+#10 0x0000555555572c5f in medin_processf (medin=0x555555840690, 
+    data=0x5555558426a0 "<PubmedArticle>    <MedlineCitation Owner=\"NLM\" Status=\"MEDLINE\">        <PMID>16905428</PMID>        <DateCreated>", ' ' <repeats 12 times>, "<Year>2006</Year>", ' ' <repeats 12 times>, "<Month>08</Month>", ' ' <repeats 20 times>, "/Day>  "..., 
+    filename=0x7fffffffdc9f "id:000014,sig:11,src:000352,op:havoc,rep:64", nref=0x1, p=0x7fffffffd510)
+    at medin.c:639
+#11 0x000055555557e3dd in read_ref (fp=0x55555583f280, bin=0x7fffffffd4f0, 
+    filename=0x7fffffffdc9f "id:000014,sig:11,src:000352,op:havoc,rep:64", p=0x7fffffffd510) at bibcore.c:472
+#12 0x000055555557f8af in bibl_read (b=0x7fffffffd620, fp=0x55555583f280, 
+    filename=0x7fffffffdc9f "id:000014,sig:11,src:000352,op:havoc,rep:64", p=0x7fffffffd660) at bibcore.c:859
+#13 0x000055555556bcac in bibprog (argc=0x2, argv=0x7fffffffd818, p=0x7fffffffd660) at bibprog.c:28
+#14 0x0000555555570f20 in main (argc=0x2, argv=0x7fffffffd818) at med2xml.c:28
+#15 0x00007ffff7a05b97 in __libc_start_main (main=0x555555570e84 <main>, argc=0x2, argv=0x7fffffffd818, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffd808)
+    at ../csu/libc-start.c:310
+#16 0x000055555556b4ba in _start ()

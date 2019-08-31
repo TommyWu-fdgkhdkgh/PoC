@@ -1,0 +1,14 @@
+Triggered by ./med2xml POC
+
+med2xml bibutils suite version 6.8
+
+The output information is as follows :
+
+$ ./med2xml POC
+
+med2xml: str.c:354: str_prepend: Assertion `s && addstr' failed.
+fish: “~/fuzzLab/fuzz_proj_bibutils/bi…” terminated by signal SIGABRT (Abort)
+
+
+
+

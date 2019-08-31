@@ -1,0 +1,226 @@
+¼?xml version="1.0"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2007//EN" "http://www.ncbi.nlm.nih.gov/entrez/query/DTD/pubmed_070101.dtd">
+<PubmedArticleSet>
+<PubmedArticle>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID>16905428</PMID>
+        <DateCreated>
+            <Year>2006</Year>
+            <Month>08</Month>
+            <Day>14</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>2006</Year>
+            <Month>11</Month>
+            <Day>02</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>11</Month>
+            <Day>15</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0065-2881</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>51</Volume>
+                    <PubDate>
+                        <Year>2006</Year>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Advances in marine biology</Title>
+                <ISOAbbreviation>Adv. Mar. Biol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>Crustacea in Arctic and Antarctic sea ice: distribution, diet and life history strategies.</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>197-315</MedlinePgn>
+            </Pagination>
+            <Abstract>
+                <AbstractText>This review concerns ce</AbstractText>
+            </Abstract>
+            <Affiliation>School of Zoology, University of Tasmania, Hobart, Tasmania, Australia.</Affiliation>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Arndt</LastName>
+                    <ForeName>Carolin E</ForeName>
+                    <Initials>CE</Initials>
+                <LastName
+                <Author ValidYN="Y">
+                    <LastName>Swadling</LastName>
+                    <ForeName>Kerrie M</ForeName>
+                    <Initials>KM</Initials>
+                </Author>
+            </AuthorList>
+            <Language>eng</Language>
+            <PublicationTypeList>
+                <PublicationType>Comparative Study </PublicationType>
+                <PublicationType>Journal Article</PublicationType>
+                <PublicationType>Research Support, Non-U.S. Gov't </PublicationType>
+            </PublicationTypeList>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>United States</Country>
+            <MedlineTA>Adv Mar Biol</MedlineTA>
+            <NlmUniqueID>0370431</NlmUniqueID>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Animals</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Antarctic Regions</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Arctic Regions</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Behavior, Animal</DescriptorName>
+                <QualifierName MajorTopicYN="N">physiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Biodiversity</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Biomass</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Crustacea</DescriptorName>
+                <QualifierName MajorTopicYN="Y">classification</QualifierName>
+                <QualifierName MajorTopicYN="Y">physiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Demography</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Diet</DescriptorName>
+                <QualifierName MajorTopicYN="N">veterinary</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="Y">Environment</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="Y">Ice</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Oceans and Seas</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Reproduction</DescriptorName>
+                <QualifierName MajorTopicYN="N">physiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N">Seawater</DescriptorName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <PubmedData>
+        <History>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2006</Year>
+                <Month>8</Month>
+                <Day>15</Day>
+                <Hour>9</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2006</Year>
+                <Month>11</Month>
+                <Day>3</Day>
+                <Hour>9</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pii">S0065-2881(06)51004-1</ArticleId>
+            <ArticleId IdType="doi">10.1016/S0065-2881(06)51004-1</ArticleId>
+            <ArticleId IdType="pubmed">16905428</ArticleId>
+        </ArticleIdList>
+    </PubmedData>
+</PubmedArticle>
+
+
+<PubmedArticle>
+    <MedlineCitation Owner="NLM" Status="PubMed-not-MEDLINE">
+        <PMID>16351846</PMID>
+        <DateCreated>
+            <Year>2005</Year>
+            <Month>12</Month>
+            <Day>14</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>2006</Year>
+            <Month>01</Month>
+            <Day>23</Day>
+        </DateCompleted>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0944-2006</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>104</Volume>
+                    <Issue>3-4</Issue>
+                    <PubDate>
+                        <Year>2001</Year>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Zoology (Jena, Germany)</Title>
+                <ISOAbbreviation>Zoology (Jena)</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>Seasonal adaptations and the role of lipids in oceanic zooplankton.</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>313-26</MedlinePgn>
+            </Pagination>
+            <Abstract>
+                <AbstractText>Oceanic zooplankton </AbstractText>
+            </Abstract>
+            <Affiliation>Marine Zoology, University of Bremen, Germany. whagen@uni-bremen.de</Affiliation>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Hagen</LastName>
+                    <ForeName>W</ForeName>
+                    <Initials>W</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Auel</LastName>
+                    <ForeName>H</ForeName>
+                    <Initials>H</Initials>
+                </Author>
+            </AuthorList>
+            <Language>eng</Language>
+            <PublicationTypeList>
+                <PublicationType>Journal Article</PublicationType>
+            </PublicationTypeList>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>Germany</Country>
+            <MedlineTA>Zoology (Jena)</MedlineTA>
+            <NlmUniqueID>9435608</NlmUniqueID>
+        </MedlineJournalInfo>
+    </MedlineCitation>
+    <PubmedData>
+        <History>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2005</Year>
+                <Month>12</Month>
+                <Day>15</Day>
+                <Hour>9</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2005</Year>
+                <Month>12</Month>
+                <Day>15</Day>
+                <Hour>9</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pii">S0944-2006(04)70036-7</ArticleId>
+            <ArticleId IdType="doi">10.1078/0944-2006-00037</ArticleId>
+            <ArticleId IdType="pubmed">16351846</ArticleId>
+        </ArticleIdList>
+    </PubmedData>
+</PubmedArticle>
+</PubmedArticleSet>

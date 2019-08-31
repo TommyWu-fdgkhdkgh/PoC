@@ -1,0 +1,39 @@
+Triggered by ./bibdiff ./POC ./POC
+
+./bibdiff bibutils suite version 6.8
+
+this testcase will trigger infinite loop 
+strsearch.c:28
+function : strsearch
+
+GDB debugging information is as follows :
+
+(gdb)set args POC POC
+(gdb)b strsearch 
+(gdb)r
+
+[-------------------------------------code-------------------------------------]
+   0x47f99b <strsearch+59>:	push   r14
+   0x47f99d <strsearch+61>:	push   rbx
+   0x47f99e <strsearch+62>:	push   rax
+=> 0x47f99f <strsearch+63>:	mov    bpl,BYTE PTR [rsi]
+   0x47f9a2 <strsearch+66>:	xor    eax,eax
+   0x47f9a4 <strsearch+68>:	test   bpl,bpl
+   0x47f9a7 <strsearch+71>:	cmove  rax,rdi
+   0x47f9ab <strsearch+75>:	test   rax,rax
+[------------------------------------stack-------------------------------------]
+0000| 0x7fffffffcf40 --> 0x82a500 ("<mods:mods ")
+0008| 0x7fffffffcf48 --> 0x7fffffffcf78 --> 0x82a500 ("<mods:mods ")
+0016| 0x7fffffffcf50 --> 0x82a790 ("%%   Saharon Shelah's bibliography%% (public version of listb.bib)% generated on:   9 May 2019,  13:12 GMT% Disclaimer:   This bibliography has its% own idiosyncrasies.   For example, all titles% are "...)
+0024| 0x7fffffffcf58 --> 0x0 
+0032| 0x7fffffffcf60 --> 0x82a790 ("%%   Saharon Shelah's bibliography%% (public version of listb.bib)% generated on:   9 May 2019,  13:12 GMT% Disclaimer:   This bibliography has its% own idiosyncrasies.   For example, all titles% are "...)
+0040| 0x7fffffffcf68 --> 0x4b2274 (<xml_find_start+116>:	mov    rbx,rax)
+0048| 0x7fffffffcf70 --> 0x82a700 ("% are enclosed in double braces, thus ensuring that capitalization")
+0056| 0x7fffffffcf78 --> 0x82a500 ("<mods:mods ")
+[------------------------------------------------------------------------------]
+Legend: code, data, rodata, value
+
+Breakpoint 1, strsearch (
+    haystack=0x82a790 "%%   Saharon Shelah's bibliography%% (public version of listb.bib)% generated on:   9 May 2019,  13:12 GMT% Disclaimer:   This bibliography has its% own idiosyncrasies.   For example, all titles% are "..., needle=0x82a500 "<mods:mods ") at strsearch.c:28
+28		if ( !(*needle) ) returnptr = (char *) haystack;
+
