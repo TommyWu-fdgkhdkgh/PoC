@@ -2,37 +2,37 @@ Triggered by ./biblatex2xml ./POC ./POC
 
 ./biblatex2xml bibutils suite version 6.8
 
-
 this testcase will trigger infinite loop 
 
-function : slist_remove
+function : process_biblatexline 
 
 GDB debugging information is as follows :
 
 (gdb)set args POC 
-(gdb)b slist_remove
 (gdb)r
 
-[-------------------------------------code-------------------------------------]
-   0x5555555872c5 <slist_remove+4>:	sub    rsp,0x20
-   0x5555555872c9 <slist_remove+8>:	mov    QWORD PTR [rbp-0x18],rdi
-   0x5555555872cd <slist_remove+12>:	mov    DWORD PTR [rbp-0x1c],esi
-=> 0x5555555872d0 <slist_remove+15>:	cmp    QWORD PTR [rbp-0x18],0x0
-   0x5555555872d5 <slist_remove+20>:	jne    0x5555555872f6 <slist_remove+53>
-   0x5555555872d7 <slist_remove+22>:	
-    lea    rcx,[rip+0xdb6a]        # 0x555555594e48 <__PRETTY_FUNCTION__.3613>
-   0x5555555872de <slist_remove+29>:	mov    edx,0x24b
-   0x5555555872e3 <slist_remove+34>:	lea    rsi,[rip+0xda66]        # 0x555555594d50
-[------------------------------------stack-------------------------------------]
-0000| 0x7fffffffd590 --> 0x1ffffd5b0 
-0008| 0x7fffffffd598 --> 0x7fffffffd650 --> 0xa0000000727d 
-0016| 0x7fffffffd5a0 --> 0x7ffff78a3050 --> 0x555555872100 --> 0x23 ('#')
-0024| 0x7fffffffd5a8 --> 0x7ffff78a3010 --> 0x555555872060 --> 0x237f 
-0032| 0x7fffffffd5b0 --> 0x7fffffffd600 --> 0x7fffffffd670 --> 0x7fffffffd760 --> 0x7fffffffd7a0 --> 0x7fffffffd940 (--> ...)
-0040| 0x7fffffffd5b8 --> 0x55555557d1a9 (<string_concatenate+580>:	mov    DWORD PTR [rbp-0x14],eax)
-0048| 0x7fffffffd5c0 --> 0x7fffffffd9a0 --> 0xd00000006c 
-0056| 0x7fffffffd5c8 --> 0x1 
-[------------------------------------------------------------------------------]
-Legend: code, data, rodata, value
+(gdb)bt
+gdb-peda$ bt
+#0  slist_remove (a=0x7fffffffd290, n=0x1) at slist.c:593
+#1  0x000055555557d1a9 in string_concatenate (tokens=0x7fffffffd290, bibin=0x0, nref=0x1, pm=0x7fffffffd5e0)
+    at biblatexin.c:328
+#2  0x000055555557d319 in process_biblatexline (
+    p=0x555555869490 "}\n*onl  auaaaaazaaaom/mac\001os/latex/co\001tridate r  urKnuthCand\n\177\377\377\377l = \"h\333tpros/la\n", tag=0x7fffffffd340, data=0x7fffffffd360, stripquotes=0x1, nref=0x1, pm=0x7fffffffd5e0)
+    at biblatexin.c:360
+#3  0x000055555557d5d1 in process_cite (bibin=0x555555870aa0, 
+    p=0x5555558621f5 "isbn\377=\177", '#' <repeats 193 times>..., filename=0x7fffffffdd61 "POC", nref=0x1, 
+    pm=0x7fffffffd5e0) at biblatexin.c:400
+#4  0x000055555557d980 in biblatexin_processf (bibin=0x555555870aa0, 
+    data=0x555555861e90 "@manual{bOblat^x,\nLu\001hor =\t{Phi Leh\\Laramma\256le BiTliond !it\307tione},\nedition = {3.2},\nye/*tan.org/}acros/latex&contrib/biblatex/doc/bookatex.pdf},Fussner\" year  ,\n", 't' <repeats 25 times>, "ne},\nedition "..., filename=0x7fffffffdd61 "POC", nref=0x1, p=0x7fffffffd5e0) at biblatexin.c:465
+#5  0x000055555558dc70 in read_ref (fp=0x555555858280, bin=0x7fffffffd5c0, filename=0x7fffffffdd61 "POC", 
+    p=0x7fffffffd5e0) at bibcore.c:472
+#6  0x000055555558f142 in bibl_read (b=0x7fffffffd6f0, fp=0x555555858280, filename=0x7fffffffdd61 "POC", 
+    p=0x7fffffffd730) at bibcore.c:859
+#7  0x00005555555771ec in bibprog (argc=0x2, argv=0x7fffffffd8e8, p=0x7fffffffd730) at bibprog.c:28
+#8  0x000055555557c460 in main (argc=0x2, argv=0x7fffffffd8e8) at biblatex2xml.c:28
+#9  0x00007ffff7a05b97 in __libc_start_main (main=0x55555557c3c4 <main>, argc=0x2, argv=0x7fffffffd8e8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=0x7fffffffd8d8)
+    at ../csu/libc-start.c:310
+#10 0x00005555555769fa in _start ()
 
-Breakpoint 1, slist_remove (a=0x7fffffffd650, n=0x1) at slist.c:587
+
